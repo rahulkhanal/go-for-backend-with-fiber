@@ -22,7 +22,7 @@ func registerItemRoutes(app *fiber.App) {
 }
 
 func getAllItems(c *fiber.Ctx) error {
-	return c.JSON(items)
+	return c.Status(200).JSON(items)
 }
 
 func createItem(c *fiber.Ctx) error {
