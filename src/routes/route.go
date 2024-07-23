@@ -7,8 +7,11 @@ import (
 )
 
 func Setup(app *fiber.App) {
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello World")
+	})
 	//authentication routes
-	app.Post("/cashiers/:cashierId/login", controllers.Login)
-	app.Post("/cashiers/:cashierId/logout", controllers.Logout)
-	app.Get("/cashiers/:cashierId/passcode", controllers.Passcode)
+	app.Post("/user/:id/login", controllers.Login)
+	app.Post("/user", controllers.Logout)
+	app.Get("/user/:id/passcode", controllers.Passcode)
 }

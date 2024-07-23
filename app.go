@@ -14,9 +14,10 @@ import (
 var DB *gorm.DB
 
 func main() {
+	//load env
+	godotenv.Load(".env")
 	app := fiber.New()
-	db.Connect()          //database
-	godotenv.Load(".env") //load env
-	route.Setup(app)      //routing
+	db.Connect()     //database
+	route.Setup(app) //routing
 	log.Fatal(app.Listen(":" + os.Getenv("PORT")))
 }

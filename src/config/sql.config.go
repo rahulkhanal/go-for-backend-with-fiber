@@ -5,7 +5,6 @@ import (
 	models "godoc/src/model/sql"
 	"os"
 
-	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -13,7 +12,6 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	godotenv.Load()
 	DbHost := os.Getenv("MYSQL_HOST")
 	DbName := os.Getenv("MYSQL_DBNAME")
 	DbUsername := os.Getenv("MYSQL_USER")
